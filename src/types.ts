@@ -4,18 +4,15 @@ import { Bindings } from "hono/types";
 import * as hono_utils_http_status from "hono/utils/http-status";
 import * as hono_utils_types from "hono/utils/types";
 import * as hono from "hono";
-import { Context } from "hono";
 
-declare function createServer<
-  Env extends Bindings = Bindings
->(): hono_hono_base.HonoBase<
+export type App = hono_hono_base.HonoBase<
   hono_utils_types.IfAnyThenEmptyObject<
     hono_utils_types.IfAnyThenEmptyObject<
       {
-        Bindings: Env & {};
+        Bindings: Bindings & {};
       } extends infer T
         ? T extends {
-            Bindings: Env & {};
+            Bindings: Bindings & {};
           }
           ? T extends hono.Env
             ? hono.Env extends T
@@ -27,10 +24,10 @@ declare function createServer<
     > & {} extends infer T_1
       ? T_1 extends hono_utils_types.IfAnyThenEmptyObject<
           {
-            Bindings: Env & {};
+            Bindings: Bindings & {};
           } extends infer T
             ? T extends {
-                Bindings: Env & {};
+                Bindings: Bindings & {};
               }
               ? T extends hono.Env
                 ? hono.Env extends T
@@ -1013,6 +1010,3 @@ declare function createServer<
     >,
   "/"
 >;
-type App = ReturnType<typeof createServer<{}>>;
-
-export { type App, createServer };
