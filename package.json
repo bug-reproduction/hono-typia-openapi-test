@@ -13,6 +13,6 @@
   },
   "scripts": {
     "prepare": "ts-patch install && typia patch",
-    "openapi": "pnpm hto --app-file ./src/index.ts --title fuzd-server --app-type AppType  --output ./openapi.json --description API --app-version api --tsconfig ./tsconfig.json"
+    "openapi": "pnpm hto --app-file ./src/index.ts --title fuzd-server --app-type App  --output ./openapi.json --description API --app-version api --tsconfig ./tsconfig.json"
   }
 }
